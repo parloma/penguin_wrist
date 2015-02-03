@@ -4,4 +4,5 @@ Model files and control scripts for a 3D printable wrist developed for PARLOMA h
 
 # Contributors
 Ludovico O. Russo, ludovico.russo@polito.it
+
 Giorgio Toscana, giorgio.toscana@polito.it
