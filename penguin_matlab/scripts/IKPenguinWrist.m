@@ -1,5 +1,20 @@
+%% Copyright (C) 2015 Politecnico di Torino
+% This program is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+% You should have received a copy of the GNU General Public License along
+% with this program; if not, write to the Free Software Foundation, Inc.,
+% 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+% Contributors:
+%   Giorgio Toscana (giorgio.toscana@polito.it)
+
 function [ q1alto, q1medio, q1basso ] = IKPenguinWrist( locus_of_desired_pose )
-% IK PINGUINO SENZA FRONZOLI.....perche' quel VIP di Ludo non e' a suo agio senno'....
+% IK Penguin Wrist without Plots
 % Output: q1alto, q1medio, q1basso in gradi ognuno e' vettore 1xN!!!
 % Input: Matrice 3xN dove ogni colonna N e' un punto 3D nello spazio del
 % path desiderato
@@ -62,8 +77,7 @@ Yvector = Yvector./norm(Yvector);
 
 R0fixedtoP4 = [cross(Yvector,vectorCircle_P4(:,PoseNumber)) ,Yvector,vectorCircle_P4(:,PoseNumber)];
 
-%con R=Rz*Ry*Rx (quella convenzionale) su assi fissi quindi inizio da roll
-%poi pitch ed infine yaw di RF0 fixed
+%con R=Rz*Ry*Rx 
 %R0fixedtoP4 = rotz(rad2deg(yaw))*roty(rad2deg(pitch))*rotx(rad2deg(roll));
 
 RPY = rot2rpy(R0fixedtoP4);
@@ -396,7 +410,7 @@ else
 end
 
 
-%% find clooser solution to home pose
+%% find the closest solution to home pose
     %disp('Solutions: q1 ALTO:' )
     if( abs(St1alto_1-0) < abs(St1alto_2-0) )
         q1alto(PoseNumber) = rad2deg(St1alto_1);
